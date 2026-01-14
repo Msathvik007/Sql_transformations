@@ -1,0 +1,53 @@
+{
+    "Job": {
+        "Name": "testing-glue-rds-conncetion",
+        "JobMode": "SCRIPT",
+        "JobRunQueuingEnabled": false,
+        "Description": "",
+        "Role": "arn:aws:iam::887549718907:role/AWS-GLUE-SERVICE-HANDSON",
+        "CreatedOn": "2026-01-13T15:01:23.399000-08:00",
+        "LastModifiedOn": "2026-01-14T01:33:17.537000-08:00",
+        "ExecutionProperty": {
+            "MaxConcurrentRuns": 1
+        },
+        "Command": {
+            "Name": "glueetl",
+            "ScriptLocation": "s3://aws-glue-assets-887549718907-us-east-2/scripts/testing-glue-rds-conncetion.py",
+            "PythonVersion": "3"
+        },
+        "DefaultArguments": {
+            "--RUN_ID": "manual-run-001",
+            "--enable-glue-datacatalog": "true",
+            "--SQL_S3_PREFIX": "s3://nyc-yellowtaxi-s3-datalake/sql_workflow/",
+            "--job-bookmark-option": "job-bookmark-disable",
+            "--TempDir": "s3://aws-glue-assets-887549718907-us-east-2/temporary/",
+            "--DB_NAME": "nyc_data_platform",
+            "--enable-metrics": "true",
+            "--enable-spark-ui": "true",
+            "--spark-event-logs-path": "s3://aws-glue-assets-887549718907-us-east-2/sparkHistoryLogs/",
+            "--enable-job-insights": "true",
+            "--additional-python-modules": "psycopg2-binary==2.9.9",
+            "--enable-observability-metrics": "true",
+            "--MANIFEST_KEY": "manifest.json",
+            "--job-language": "python",
+            "--CONN_NAME": "Postgresql-connection"
+        },
+        "Connections": {
+            "Connections": [
+                "Postgresql-connection"
+            ]
+        },
+        "MaxRetries": 0,
+        "AllocatedCapacity": 10,
+        "Timeout": 480,
+        "MaxCapacity": 10.0,
+        "WorkerType": "G.1X",
+        "NumberOfWorkers": 10,
+        "GlueVersion": "5.0",
+        "ExecutionClass": "STANDARD",
+        "SourceControlDetails": {
+            "Provider": "GITHUB",
+            "Folder": "testing-glue-rds-conncetion"
+        }
+    }
+}

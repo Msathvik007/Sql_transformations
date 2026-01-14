@@ -1,0 +1,20 @@
+{
+  "run_order": [
+    "sql/00_admin/001_create_schemas.sql",
+    "sql/00_admin/020_create_master_tables.sql",
+    "sql/00_admin/030_seed_master_static.sql",
+    "sql/00_admin/040_load_master_taxi_zone.sql",
+    "sql/00_admin/050_create_audit_tables.sql",
+
+    "sql/10_transform/100_v_trips_base.sql",
+    "sql/10_transform/110_v_trips_good.sql",
+
+    "sql/90_dq/900_dq_summary.sql",
+    "sql/90_dq/910_dq_nulls_and_ranges.sql",
+    "sql/90_dq/930_dq_outliers_amounts.sql",
+
+    "sql/95_tests/950_test_no_negative_money.sql",
+    "sql/95_tests/955_test_time_order_good.sql",
+    "sql/95_tests/960_test_no_negative_money_good.sql"
+  ]
+}
